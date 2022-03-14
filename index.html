@@ -5,111 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://use.fontawesome.com/4f6e1018eb.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        function capitalize (string){
-            const firstLetter = string.charAt(0).toUpperCase();
-            const restOfString = string.slice(1).toLowerCase();
-            const capitalizedString = firstLetter + restOfString;
-            return capitalizedString;
-        }
-
-        function computerPlay (){
-            const elements = ["Rock", "Paper", "Scissors"];
-
-            const randomElement = elements[Math.floor(Math.random() * elements.length)];
-
-            return randomElement;
-        }
-
-        function playRound (playerSelection, computerSelection){
-            let playerWins;
-            let roundStatus;
-            const roundArray = [];
-
-            if(playerSelection == "Paper"){
-                switch(computerSelection){
-                    case "Scissors":
-                        playerWins = false;
-                        break;
-                    case "Rock":
-                        playerWins = true;
-                        break;
-                    break;
-                }
-            }
-
-            if(playerSelection == "Rock"){
-                switch(computerSelection){
-                    case "Scissors":
-                        playerWins = true;
-                        break;
-                    case "Paper":
-                        playerWins = false;
-                        break;
-                    break;
-                }
-            }
-
-            if(playerSelection == "Scissors"){
-                switch(computerSelection){
-                    case "Rock":
-                        playerWins = false;
-                        break;
-                    case "Paper":
-                        playerWins = true;
-                        break;
-                    break;
-                }
-            }
-            
-            if (playerWins){
-                roundStatus = "Win";
-            }else if (playerWins == false){
-                roundStatus = "Lost";
-            }else{
-                roundStatus = "Draw";
-            }
-
-            roundArray.push(roundStatus, playerSelection, computerSelection);
-            return roundArray;
-        }
-
-        function game(){
-            let playerScore = 0;
-            let computerScore = 0;
-
-            for (let i = 0; i < 5; i++) {
-                let promptData = prompt ('Choose: Paper, Scissors or Rock');
-                promptData = capitalize(promptData);
-
-                let roundData = playRound(promptData, computerPlay());
-
-                let roundStatus = roundData[0];
-                let playerSelection = roundData[1];
-                let computerSelection = roundData[2];
-
-                if(roundStatus == "Win"){
-                    console.log("You Win! " + playerSelection + " beats " + computerSelection);
-                    playerScore++;
-                }else if (roundStatus == "Lost"){
-                    console.log("You lost! " + computerSelection + " beats " + playerSelection);
-                    computerScore++;
-                }else{
-                    console.log("Draw!");
-                }
-            }
-
-            if(playerScore > computerScore){
-                console.log("You win the game! " + playerScore + "-" + computerScore);
-            }else if(computerScore > playerScore){
-                console.log("You lost the game! " + playerScore + "-" + computerScore);
-            }else{
-                console.log("Draw." + playerScore + "-" + computerScore);
-            }
-
-        }
-    </script>
+    <div class="container">
+        <div class="row column">
+            <h1 id="gameScreen">Rock, paper or scissors?</h1>
+        </div>
+        <div id="buttonsContainer" class="row margin">
+            <button id="rock" data-element="Rock"><i class="fa fa-hand-rock-o" aria-hidden="true"></i></button>
+            <button id="paper" data-element="Paper"><i class="fa fa-hand-paper-o" aria-hidden="true"></i></button>
+            <button id="scissors" data-element="Scissors"><i class="fa fa-hand-scissors-o" aria-hidden="true"></i></button>
+        </div>
+        <div id="restartContainer" class="row margin">
+            <button id="restartButton">Restart</button>
+        </div>
+        <div class="row">
+            <h3>Player: <span id="playerScoreDisplay">0</span> - Computer: <span id="computerScoreDisplay">0</span></h3>
+        </div>
+    </div>
 </body>
 </html>

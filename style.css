@@ -1,0 +1,54 @@
+body{
+    background-color: rgb(171, 171, 214);
+}
+
+h3{
+    margin: 0;
+}
+
+button{
+    background-color: blue;
+    color: white;
+    padding: 15px;
+    border-radius: 8%;
+    border: 1px solid white;
+}
+
+#buttonsContainer button {
+    font-size: 55px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-left: 25%;
+    margin-top: 5%;
+    background-color: rgb(63, 63, 156);
+    height: 511px;
+    width: 555px;
+    border-radius: 3%;
+}
+
+.row{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.margin{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.column{
+    flex-direction: column;
+    gap: 1px;
+}
+
+#restartContainer{
+    display: none;
+}
